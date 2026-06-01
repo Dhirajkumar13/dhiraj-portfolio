@@ -16,6 +16,9 @@
 # IDE
 .idea/
 
+# Claude Code (local skill + settings, not for the repo)
+.claude/
+
 # Misc
 .DS_Store
 *.pem

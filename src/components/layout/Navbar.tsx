@@ -35,22 +35,25 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-screen-xl mx-auto px-6 lg:px-12 h-14 flex items-center justify-between">
-        {/* Name / Logo */}
+      {/* Increased height h-14 → h-[68px], font text-sm → text-[17px], gap-8 → gap-12 */}
+      <div className="max-w-screen-xl mx-auto px-6 lg:px-12 h-[68px] flex items-center justify-between">
+
+        {/* Logo / name — brand anchor */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="text-sm font-medium tracking-tight hover:opacity-50 transition-opacity"
+          className="text-xl font-semibold tracking-tight hover:opacity-50 transition-opacity"
         >
           Dhiraj Kumar
         </button>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-12">
           {links.map((link) => (
             <button
               key={link.href}
               onClick={() => scrollTo(link.href)}
-              className="text-sm text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-200"
+              className="text-[17px] text-neutral-500 dark:text-neutral-400
+                         hover:text-black dark:hover:text-white transition-colors duration-200"
             >
               {link.label}
             </button>
@@ -58,7 +61,8 @@ export function Navbar() {
           <a
             href="/resume/Dhiraj_resume.pdf"
             download
-            className="text-sm text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-200"
+            className="text-[17px] text-neutral-500 dark:text-neutral-400
+                       hover:text-black dark:hover:text-white transition-colors duration-200"
           >
             Resume ↗
           </a>
@@ -66,7 +70,7 @@ export function Navbar() {
         </nav>
 
         {/* Mobile */}
-        <div className="flex md:hidden items-center gap-3">
+        <div className="flex md:hidden items-center gap-4">
           <ThemeToggle />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -88,12 +92,13 @@ export function Navbar() {
             transition={{ duration: 0.2 }}
             className="md:hidden border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-black overflow-hidden"
           >
-            <nav className="max-w-screen-xl mx-auto px-6 py-4 flex flex-col gap-4">
+            <nav className="max-w-screen-xl mx-auto px-6 py-6 flex flex-col gap-5">
               {links.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className="text-sm text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors text-left"
+                  className="text-[17px] text-neutral-500 dark:text-neutral-400
+                             hover:text-black dark:hover:text-white transition-colors text-left"
                 >
                   {link.label}
                 </button>
@@ -101,7 +106,7 @@ export function Navbar() {
               <a
                 href="/resume/Dhiraj_resume.pdf"
                 download
-                className="text-sm text-neutral-500 dark:text-neutral-400"
+                className="text-[17px] text-neutral-500 dark:text-neutral-400"
               >
                 Download Resume ↗
               </a>
