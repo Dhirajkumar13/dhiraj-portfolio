@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    @apply bg-white text-black dark:bg-black dark:text-white;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  }
+
+  ::selection {
+    @apply bg-black/10 dark:bg-white/10;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply text-sm font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500;
+  }
+
+  .divider {
+    @apply border-t border-neutral-200 dark:border-neutral-800;
+  }
+
+  .text-gold {
+    color: #B8892A;
+  }
+
+  .dark .text-gold {
+    color: #D4A574;
+  }
+
+  .link-underline {
+    @apply border-b border-current pb-px hover:opacity-50 transition-opacity duration-200;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium
+           border border-black text-black
+           hover:bg-black hover:text-white
+           dark:border-white dark:text-white
+           dark:hover:bg-white dark:hover:text-black
+           transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply text-sm text-neutral-400 dark:text-neutral-500
+           hover:text-black dark:hover:text-white transition-colors duration-200;
+  }
+
+  .architecture-node {
+    @apply border border-neutral-200 dark:border-neutral-800
+           px-3 py-2 text-sm text-neutral-700 dark:text-neutral-300
+           bg-neutral-50 dark:bg-neutral-950;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-300 dark:bg-neutral-700;
+  border-radius: 2px;
+}
+
+/* Prevent transition on theme switch for specific properties */
+.theme-transition * {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;
+}
