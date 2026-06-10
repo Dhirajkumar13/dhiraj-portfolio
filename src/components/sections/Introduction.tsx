@@ -108,13 +108,7 @@ export function Introduction() {
             <br />
             Scalable
             <br />
-            Backend{" "}
-            <span className="inline-flex items-baseline gap-[0.08em]">
-              Systems
-              <span className="text-[#D4A574] text-[0.15em] font-mono tracking-normal align-super hidden sm:inline">
-                ®
-              </span>
-            </span>
+            Backend Systems<span className="text-[#D4A574]">.</span>
           </motion.h1>
         </div>
 
