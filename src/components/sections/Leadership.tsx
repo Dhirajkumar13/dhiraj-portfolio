@@ -19,32 +19,32 @@ export function Leadership() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="leadership" className="divider py-28 lg:py-40" ref={ref}>
+    <section id="leadership" className="divider py-20 lg:py-28" ref={ref}>
       <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease }}
         >
-          <span className="section-label">05 — Leadership</span>
+          <span className="section-label">06 — Leadership</span>
           <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-black dark:text-white max-w-3xl leading-tight">
             Great engineering leadership is what makes consistent delivery possible.
           </h2>
         </motion.div>
 
-        <div className="mt-20 lg:mt-28 space-y-0">
+        <div className="mt-14 lg:mt-20 grid sm:grid-cols-2 gap-x-12 lg:gap-x-20">
           {statements.map((s, i) => (
             <motion.div
               key={s.title}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.08, ease }}
-              className="group py-8 lg:py-10 border-b border-neutral-200 dark:border-neutral-800 first:border-t grid lg:grid-cols-[1fr_auto] gap-3 lg:gap-12 items-baseline"
+              transition={{ duration: 0.6, delay: i * 0.06, ease }}
+              className="py-6 border-b border-neutral-200 dark:border-neutral-800"
             >
-              <h3 className="font-semibold tracking-tighter leading-none text-[clamp(2rem,5.5vw,4rem)] text-black dark:text-white transition-colors">
+              <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-black dark:text-white mb-1.5">
                 {s.title}
               </h3>
-              <p className="text-lg sm:text-xl text-neutral-500 dark:text-neutral-400 lg:text-right max-w-sm leading-snug">
+              <p className="text-base text-neutral-500 dark:text-neutral-400 leading-snug">
                 {s.line}
               </p>
             </motion.div>

@@ -10,19 +10,19 @@ const stats = [
     detail: "Building production systems",
   },
   {
-    number: "50+",
-    label: "APIs Shipped",
-    detail: "REST, WebSocket, Serverless",
+    number: "20+",
+    label: "Enterprise Projects",
+    detail: "Fintech, logistics, immigration, AI",
   },
   {
-    number: "3",
-    label: "Industry Awards",
-    detail: "Including Excellence 2024",
+    number: "3+",
+    label: "AI Platforms Delivered",
+    detail: "Conversational & document intelligence",
   },
   {
-    number: "4",
-    label: "Enterprise Platforms",
-    detail: "Financial, AI, Immigration",
+    number: "100K+",
+    label: "Automated Interactions",
+    detail: "Across production AI channels",
   },
 ];
 
@@ -32,7 +32,7 @@ export function Impact() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   return (
-    <section id="impact" className="divider py-28 lg:py-40">
+    <section id="impact" className="divider py-20 lg:py-28">
       <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -55,9 +55,9 @@ export function Impact() {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1, ease }}
-              className="border-r border-b border-neutral-200 dark:border-neutral-800 p-8 lg:p-14"
+              className="border-r border-b border-neutral-200 dark:border-neutral-800 p-6 sm:p-8 lg:p-14"
             >
-              <p className="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tighter text-black dark:text-white leading-none">
+              <p className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter text-black dark:text-white leading-none">
                 {stat.number}
               </p>
               <p className="mt-6 text-base font-medium text-black dark:text-white">

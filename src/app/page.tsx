@@ -4,6 +4,7 @@ import { Introduction } from "@/components/sections/Introduction";
 import { Impact } from "@/components/sections/Impact";
 import { Work } from "@/components/sections/Work";
 import { ArchitectureSection } from "@/components/sections/ArchitectureSection";
+import { Expertise } from "@/components/sections/Expertise";
 import { Leadership } from "@/components/sections/Leadership";
 import { Timeline } from "@/components/sections/Timeline";
 import { Recognition } from "@/components/sections/Recognition";
@@ -20,6 +21,7 @@ export default function Home() {
         <Impact />
         <Work />
         <ArchitectureSection />
+        <Expertise />
         <Leadership />
         <Timeline />
         <Recognition />

@@ -27,10 +27,10 @@ interface Architecture {
 const architectures: Architecture[] = [
   {
     id: "whatsapp",
-    title: "WhatsApp Bot",
+    title: "Western Union AI Platform",
     subtitle: "01",
     description:
-      "AI-powered conversational support through WhatsApp, integrating business workflows, intelligent response generation, persistent conversation storage, and centralised monitoring.",
+      "Multilingual AI conversations over WhatsApp with real-time Socket.IO communication — escalating complex tasks like money transfers to live agents through Salesforce and Genesys Cloud.",
     layers: [
       {
         label: "Channel Layer",
@@ -40,26 +40,28 @@ const architectures: Architecture[] = [
         ],
       },
       {
+        label: "Enterprise Layer",
+        nodes: [
+          { name: "Salesforce CRM", tag: "Live Agent Escalation" },
+          { name: "Genesys Cloud", tag: "Contact Center Routing" },
+        ],
+      },
+      {
         label: "API Layer",
         nodes: [
-          { name: "AWS Lambda", tag: "Serverless Compute" },
+          { name: "Node.js APIs", tag: "Socket.IO · Real-Time" },
         ],
       },
       {
         label: "AI Layer",
         nodes: [
-          { name: "Internal ML API", tag: "Intelligence Engine", shared: true },
+          { name: "OpenAI / Azure OpenAI", tag: "Multilingual Conversations" },
         ],
       },
       {
-        label: "Data Layer",
+        label: "Data & Monitoring",
         nodes: [
           { name: "Amazon DocumentDB", tag: "Conversation Storage", shared: true },
-        ],
-      },
-      {
-        label: "Monitoring",
-        nodes: [
           { name: "CloudWatch", tag: "AWS Observability" },
         ],
       },
@@ -90,7 +92,7 @@ const architectures: Architecture[] = [
       {
         label: "AI Layer",
         nodes: [
-          { name: "Internal ML API", tag: "Intelligence Engine", shared: true },
+          { name: "Internal ML API", tag: "Intelligence Engine" },
         ],
       },
       {
@@ -109,15 +111,14 @@ const architectures: Architecture[] = [
   },
   {
     id: "docubaat",
-    title: "Docubaat",
-    subtitle: "04",
+    title: "Document Intelligence Platform",
+    subtitle: "03",
     description:
-      "AI-powered document intelligence platform. Users upload files, which are processed and indexed so they can ask natural language questions and receive accurate, context-aware answers.",
+      "Docubaat — AI summarization, document ingestion, and semantic search. Uploaded files are processed and indexed so users can ask natural language questions and receive context-aware answers.",
     layers: [
       {
         label: "Upload Layer",
         nodes: [
-          { name: "User", tag: "Browser Client" },
           { name: "Document Upload", tag: "PDF · Word · Excel" },
         ],
       },
@@ -130,20 +131,21 @@ const architectures: Architecture[] = [
       {
         label: "Processing Layer",
         nodes: [
-          { name: "Node.js APIs", tag: "Content Extraction" },
-        ],
-      },
-      {
-        label: "Data Layer",
-        nodes: [
+          { name: "Processing Service", tag: "Node.js · Content Extraction" },
           { name: "MongoDB", tag: "Metadata · Indexed Content" },
         ],
       },
       {
         label: "AI Layer",
         nodes: [
-          { name: "Q&A Engine", tag: "Context Retrieval" },
-          { name: "Answer Generation", tag: "Natural Language Response" },
+          { name: "OpenAI", tag: "Summarization · Embeddings" },
+        ],
+      },
+      {
+        label: "Retrieval Layer",
+        nodes: [
+          { name: "Semantic Search", tag: "Context Retrieval" },
+          { name: "Knowledge Retrieval", tag: "Natural Language Answers" },
         ],
       },
     ],
@@ -151,7 +153,7 @@ const architectures: Architecture[] = [
   {
     id: "itech",
     title: "iTECH OCR Platform",
-    subtitle: "03",
+    subtitle: "04",
     description:
       "Enterprise document-processing platform for shipping bills, bills of lading, and logistics invoices. Files arrive via email and FTP, land in S3, and are processed through PM2-managed OCR workers with metadata tracked in MongoDB.",
     layers: [
@@ -351,7 +353,7 @@ export function ArchitectureSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.08 });
 
   return (
-    <section id="architecture" className="divider py-28 lg:py-40" ref={ref}>
+    <section id="architecture" className="divider py-20 lg:py-28" ref={ref}>
       <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
 
         {/* Section header */}
@@ -363,7 +365,7 @@ export function ArchitectureSection() {
           <span className="section-label">04 — Architecture</span>
           <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight
                          text-black dark:text-white max-w-2xl leading-tight">
-            How the systems flow.
+            Systems I&apos;ve architected.
           </h2>
           <p className="mt-4 text-lg text-neutral-500 dark:text-neutral-400 max-w-2xl leading-relaxed">
             Four production systems — conversational AI channels, a document intelligence platform,
@@ -410,11 +412,12 @@ export function ArchitectureSection() {
               Shared Services
             </p>
             <p className="text-sm font-medium text-black dark:text-white mb-1">
-              Internal ML API + DocumentDB + MongoDB
+              DocumentDB + MongoDB
             </p>
             <p className="text-sm text-neutral-500 dark:text-neutral-300 leading-relaxed">
-              Chatbot architectures share DocumentDB. The OCR platform uses
-              MongoDB independently for job metadata and document state tracking.
+              Conversational channels share DocumentDB for conversation storage.
+              The document platforms use MongoDB independently for job metadata
+              and indexed content.
             </p>
           </div>
           <div>

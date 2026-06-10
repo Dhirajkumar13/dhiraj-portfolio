@@ -1,8 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
+import toast from "react-hot-toast";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+
+const EMAIL = "dhirajkumarvandrangi@gmail.com";
+
+async function copyEmail() {
+  try {
+    await navigator.clipboard.writeText(EMAIL);
+    toast.success("Email copied");
+  } catch {
+    toast.error("Couldn't copy — select the address manually");
+  }
+}
 
 const links = [
   {
@@ -45,7 +57,7 @@ const links = [
 
 export function Contact() {
   return (
-    <section id="contact" className="divider py-24 lg:py-32">
+    <section id="contact" className="divider py-20 lg:py-28">
       <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -54,7 +66,7 @@ export function Contact() {
           transition={{ duration: 0.6, ease }}
           className="mb-4"
         >
-          <span className="section-label">08 — Contact</span>
+          <span className="section-label">09 — Contact</span>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 mt-16">
@@ -76,13 +88,13 @@ export function Contact() {
               If you&apos;re building something interesting in backend engineering, cloud
               infrastructure, or AI — I&apos;d like to hear about it.
             </p>
-            <div className="mt-8">
-              <a
-                href="mailto:dhirajkumarvandrangi@gmail.com"
-                className="btn-primary"
-              >
+            <div className="mt-8 flex items-center gap-6 flex-wrap">
+              <a href={`mailto:${EMAIL}`} className="btn-primary">
                 Send a message
               </a>
+              <button onClick={copyEmail} className="btn-secondary">
+                Copy email ⧉
+              </button>
             </div>
           </motion.div>
 

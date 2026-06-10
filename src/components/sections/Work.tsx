@@ -13,6 +13,8 @@ const projects = [
     title: "Lisa",
     year: "2021 — Present",
     roles: ["Node.js Developer", "JavaScript Developer", "jQuery Developer"],
+    challenge:
+      "Routine customer conversations at global scale were consuming live-agent capacity, while complex tasks like money transfers had no safe automated handoff path.",
     statement:
       "Intelligent chatbot platform integrating real-time socket communication, Salesforce CRM, and a machine learning engine for automated customer support.",
     impact:
@@ -27,6 +29,8 @@ const projects = [
     title: "Document Processing",
     year: "2019 — 2024",
     roles: ["Node.js Developer"],
+    challenge:
+      "Shipping documents arrived in mixed formats over email and FTP, forcing slow, error-prone manual data entry at scale.",
     statement:
       "Automated extraction pipeline for structured and semi-structured documents — invoices, bills of lading — using ML server integration and multi-format file processing.",
     impact:
@@ -41,6 +45,8 @@ const projects = [
     title: "Docubaat",
     year: "2023 — 2025",
     roles: ["Node.js Developer"],
+    challenge:
+      "Manual document indexing across large email datasets was driving up shared-services cost with diminishing ROI.",
     statement:
       "Web-based intelligent automation platform for document digitisation, high-accuracy data extraction, and omnichannel virtual assistants powered by unsupervised machine learning.",
     impact:
@@ -55,6 +61,8 @@ const projects = [
     title: "Immigration Automation",
     year: "2019 — 2020",
     roles: ["Node.js Developer"],
+    challenge:
+      "Each immigration case demanded hours of manual extraction from LCAs, I-129 forms, and passports before processing could begin.",
     statement:
       "Intelligent automation solution for extracting and structuring data from immigration documents — LCAs, I-129 forms, passports — using ML processing pipelines.",
     impact:
@@ -65,10 +73,9 @@ const projects = [
   },
 ];
 
-function ProjectBlock({ project, i }: { project: (typeof projects)[number]; i: number }) {
+function ProjectBlock({ project }: { project: (typeof projects)[number] }) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
   const [open, setOpen] = useState(false);
-  const flip = i % 2 === 1;
 
   return (
     <motion.article
@@ -76,26 +83,15 @@ function ProjectBlock({ project, i }: { project: (typeof projects)[number]; i: n
       initial={{ opacity: 0, y: 28 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease }}
-      className="divider py-20 lg:py-32"
+      className="divider py-14 lg:py-20"
     >
-      <div
-        className={`grid lg:grid-cols-2 gap-10 lg:gap-20 items-center ${
-          flip ? "lg:[&>*:first-child]:order-2" : ""
-        }`}
-      >
-        {/* Visual side — oversized index number */}
-        <div className={`flex ${flip ? "lg:justify-end" : "lg:justify-start"}`}>
-          <span className="font-bold tracking-tighter leading-none select-none
-                           text-[clamp(8rem,22vw,20rem)]
-                           text-black/[0.06] dark:text-white/[0.12]">
-            {project.index}
-          </span>
-        </div>
-
-        {/* Text side */}
+      <div>
         <div>
-          {/* Year — quaternary, very small */}
-          <div className="mb-4">
+          {/* Index + year — quaternary, very small */}
+          <div className="mb-4 flex items-baseline gap-4">
+            <span className="text-xs font-mono text-neutral-300 dark:text-neutral-600">
+              {project.index}
+            </span>
             <span className="text-xs font-mono text-neutral-400 dark:text-neutral-600">
               {project.year}
             </span>
@@ -103,7 +99,7 @@ function ProjectBlock({ project, i }: { project: (typeof projects)[number]; i: n
 
           {/* Client — primary identifier, large and bold */}
           <h3 className="font-bold tracking-tighter leading-none mb-3
-                         text-[clamp(2.75rem,7vw,5.5rem)]
+                         text-[clamp(2rem,3.5vw,3.25rem)]
                          text-black dark:text-white">
             {project.client}
           </h3>
@@ -129,14 +125,29 @@ function ProjectBlock({ project, i }: { project: (typeof projects)[number]; i: n
           </div>
 
           {/* Statement */}
-          <p className="text-xl sm:text-2xl leading-snug text-neutral-700 dark:text-neutral-100 max-w-xl mb-5">
+          <p className="text-lg sm:text-xl leading-snug text-neutral-700 dark:text-neutral-100 mb-7">
             {project.statement}
           </p>
 
-          {/* Impact */}
-          <p className="text-lg leading-relaxed text-neutral-500 dark:text-neutral-300 max-w-xl">
-            {project.impact}
-          </p>
+          {/* Challenge + Business Impact — side by side */}
+          <div className="grid sm:grid-cols-2 gap-6 lg:gap-10">
+            <div>
+              <p className="text-[11px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-2">
+                Challenge
+              </p>
+              <p className="text-base leading-relaxed text-neutral-500 dark:text-neutral-300">
+                {project.challenge}
+              </p>
+            </div>
+            <div>
+              <p className="text-[11px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-2">
+                Business Impact
+              </p>
+              <p className="text-base leading-relaxed text-neutral-500 dark:text-neutral-300">
+                {project.impact}
+              </p>
+            </div>
+          </div>
 
           {/* Tech */}
           <p className="mt-8 text-sm font-mono text-neutral-500 dark:text-neutral-400">
@@ -165,7 +176,7 @@ function ProjectBlock({ project, i }: { project: (typeof projects)[number]; i: n
                 transition={{ duration: 0.4, ease }}
                 className="overflow-hidden"
               >
-                <p className="mt-6 text-base leading-relaxed text-neutral-500 dark:text-neutral-300 max-w-xl">
+                <p className="mt-6 text-base leading-relaxed text-neutral-500 dark:text-neutral-300">
                   {project.details}
                 </p>
               </motion.div>
@@ -179,7 +190,7 @@ function ProjectBlock({ project, i }: { project: (typeof projects)[number]; i: n
 
 export function Work() {
   return (
-    <section id="work" className="divider py-28 lg:py-40">
+    <section id="work" className="divider py-20 lg:py-28">
       <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -194,9 +205,9 @@ export function Work() {
           </h2>
         </motion.div>
 
-        <div>
-          {projects.map((project, i) => (
-            <ProjectBlock key={project.index} project={project} i={i} />
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-20">
+          {projects.map((project) => (
+            <ProjectBlock key={project.index} project={project} />
           ))}
         </div>
       </div>

@@ -98,16 +98,19 @@ export function Introduction() {
         </div>
 
         {/* ── CENTRE: Main headline — dominates viewport ── */}
-        <div className="py-10 lg:py-14 max-w-[70%] lg:max-w-[65%]">
+        <div className="py-10 lg:py-14 max-w-[75%] lg:max-w-[68%]">
           <motion.h1
             {...fade(0.38)}
-            className="font-semibold tracking-tighter leading-[0.82]
-                       text-[clamp(4.4rem,19vw,16rem)]"
+            className="font-semibold tracking-tighter leading-[0.87]
+                       text-[clamp(2.75rem,8.5vw,7.5rem)]"
           >
-            Backend
+            Architecting
             <br />
+            Scalable
+            <br />
+            Backend{" "}
             <span className="inline-flex items-baseline gap-[0.08em]">
-              Architect
+              Systems
               <span className="text-[#D4A574] text-[0.15em] font-mono tracking-normal align-super hidden sm:inline">
                 ®
               </span>
@@ -122,18 +125,19 @@ export function Introduction() {
             className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-20 items-end"
           >
             {/* Tertiary — description */}
-            <div className="max-w-xs">
+            <div className="max-w-sm">
               <p className="text-base leading-relaxed text-neutral-500 dark:text-[#A1A1AA]">
-                Designing scalable backend systems, AI-powered platforms and cloud-native
-                architectures for enterprise organizations.
+                Senior Software Engineer and Team Lead specializing in cloud-native
+                architectures, AI-powered platforms, distributed systems, and
+                enterprise integrations.
               </p>
               <div className="mt-7 flex items-center gap-7 flex-wrap">
                 <button
-                  onClick={() => document.querySelector("#work")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => document.querySelector("#architecture")?.scrollIntoView({ behavior: "smooth" })}
                   className="text-sm font-medium border-b border-current pb-0.5
                              hover:text-[#D4A574] hover:border-[#D4A574] transition-colors duration-200"
                 >
-                  View Work ↓
+                  View Architecture Case Studies ↓
                 </button>
                 <a
                   href="/resume/Dhiraj_resume.pdf"
@@ -141,7 +145,7 @@ export function Introduction() {
                   className="text-sm text-neutral-400 dark:text-[#A1A1AA]
                              hover:text-[#050505] dark:hover:text-[#FAFAFA] transition-colors duration-200"
                 >
-                  Resume ↗
+                  Download Resume ↗
                 </a>
               </div>
             </div>

@@ -6,18 +6,20 @@ import { ThemeProvider } from "@/components/common/ThemeProvider";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
-  title: "Dhiraj Kumar Vandrangi — Senior Software Engineer",
+  title: "Dhiraj Kumar Vandrangi — Backend Architect & Team Lead",
   description:
-    "Senior Software Engineer with 7+ years building scalable backend systems, AI-powered platforms, and cloud-native applications. Node.js · AWS · TypeScript · OpenAI.",
+    "Senior Software Engineer and Team Lead with 7+ years architecting scalable backend systems, cloud-native applications, AI-powered platforms, and enterprise integrations. Node.js · AWS · TypeScript · OpenAI.",
   keywords: [
     "Dhiraj Kumar Vandrangi",
+    "Backend Architect",
     "Senior Software Engineer",
     "Team Lead",
     "Node.js",
     "AWS",
-    "Backend Engineer",
+    "Distributed Systems",
     "TypeScript",
     "Microservices",
+    "Azure OpenAI",
     "OpenAI",
     "MongoDB",
   ],
@@ -27,16 +29,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://dhirajkumar.dev",
-    title: "Dhiraj Kumar Vandrangi — Senior Software Engineer",
+    title: "Dhiraj Kumar Vandrangi — Backend Architect & Team Lead",
     description:
-      "Building scalable backend systems, AI-powered platforms, and cloud-native applications for enterprise clients.",
+      "Architecting scalable backend systems, AI-powered platforms, and cloud-native applications for enterprise clients.",
     siteName: "Dhiraj Kumar Vandrangi",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dhiraj Kumar Vandrangi — Senior Software Engineer",
+    title: "Dhiraj Kumar Vandrangi — Backend Architect & Team Lead",
     description:
-      "Building scalable backend systems, AI-powered platforms, and cloud-native applications.",
+      "Architecting scalable backend systems, AI-powered platforms, and cloud-native applications.",
   },
   robots: {
     index: true,
@@ -54,9 +56,9 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Dhiraj Kumar Vandrangi",
-  jobTitle: "Senior Software Engineer / Team Lead",
+  jobTitle: "Senior Software Engineer / Team Lead / Backend Architect",
   description:
-    "Senior Software Engineer with 7+ years building scalable backend systems, AI-powered platforms, and cloud-native applications.",
+    "Senior Software Engineer and Team Lead with 7+ years architecting scalable backend systems, AI-powered platforms, and cloud-native applications.",
   url: "https://dhirajkumar.dev",
   email: "dhirajkumarvandrangi@gmail.com",
   telephone: "+91-96524-85082",

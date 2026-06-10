@@ -41,7 +41,7 @@ export function Timeline() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="timeline" className="divider py-28 lg:py-40" ref={ref}>
+    <section id="timeline" className="divider py-20 lg:py-28" ref={ref}>
       <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -49,7 +49,7 @@ export function Timeline() {
           transition={{ duration: 0.6, ease }}
           className="mb-16"
         >
-          <span className="section-label">06 — Experience</span>
+          <span className="section-label">07 — Experience</span>
         </motion.div>
 
         <div className="relative">

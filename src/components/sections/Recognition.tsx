@@ -36,7 +36,7 @@ export function Recognition() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="recognition" className="divider py-28 lg:py-40" ref={ref}>
+    <section id="recognition" className="divider py-20 lg:py-28" ref={ref}>
       <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -44,34 +44,37 @@ export function Recognition() {
           transition={{ duration: 0.6, ease }}
           className="mb-16"
         >
-          <span className="section-label">07 — Recognition</span>
+          <span className="section-label">08 — Recognition</span>
         </motion.div>
 
-        <div className="space-y-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 border-l border-t border-neutral-200 dark:border-neutral-800">
           {awards.map((award, i) => (
             <motion.div
               key={award.year}
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.12, ease }}
-              className="divider py-14 grid md:grid-cols-[90px_1fr_auto] gap-6 items-baseline"
+              className="border-r border-b border-neutral-200 dark:border-neutral-800 p-8 lg:p-10 flex flex-col"
             >
-              <span className="text-base font-mono text-neutral-400 dark:text-neutral-500">
+              <span className="text-sm font-mono text-neutral-400 dark:text-neutral-500">
                 {award.year}
               </span>
 
-              <div>
-                <h3 className="text-3xl sm:text-4xl font-semibold tracking-tight text-black dark:text-white mb-3 leading-none">
-                  {award.title}
-                </h3>
-                <p className="text-lg text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-xl">
-                  <span className="text-neutral-400 dark:text-neutral-500">{award.category}.</span> {award.detail}
-                </p>
-              </div>
+              <h3 className="mt-8 text-2xl lg:text-3xl font-semibold tracking-tight text-black dark:text-white leading-tight">
+                {award.title}
+              </h3>
 
-              <span className="text-sm text-neutral-300 dark:text-neutral-700 font-mono shrink-0 self-start mt-2">
+              <p className="mt-3 text-xs font-mono uppercase tracking-widest text-[#B8892A] dark:text-[#D4A574]">
+                {award.category}
+              </p>
+
+              <p className="mt-5 text-base text-neutral-500 dark:text-neutral-300 leading-relaxed flex-1">
+                {award.detail}
+              </p>
+
+              <p className="mt-8 text-xs font-mono text-neutral-400 dark:text-neutral-500">
                 {award.org}
-              </span>
+              </p>
             </motion.div>
           ))}
         </div>
